@@ -11,14 +11,14 @@ class MainPageState extends State<MainPage> {
 
   // 인덱스 별 위젯(페이지) 목록
   // List<Widget> == dynamic page
-  dynamic page = [
+  dynamic pages = [
     HomePage(), // index 0 > 홈페이지
   ]; // page end
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: HomePage(),
+      body: IndexedStack(index: currentPageIndex, children: pages ),
       bottomNavigationBar: BottomNavigationBar(
         // items 바텀 메뉴에 들어갈 버튼들
         currentIndex: currentPageIndex,
