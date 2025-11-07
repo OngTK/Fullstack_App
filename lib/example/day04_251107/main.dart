@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:fullstack_app/example/day04_251107/pages/DetailPage.dart';
 import 'package:fullstack_app/example/day04_251107/pages/HomePage.dart';
 import 'package:fullstack_app/example/day04_251107/pages/InfoPage.dart';
 import 'package:fullstack_app/example/day04_251107/pages/MainPage.dart';
+import 'package:fullstack_app/example/day04_251107/pages/SettingPage.dart';
 
 void main() {
   runApp(MyApp());
@@ -16,11 +18,13 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       // 최초 경로 Route
       initialRoute: "/",
-      // 경로와 해당 위젯을 연결하는 MAP
+      // 라우터 : 경로와 해당 위젯을 MAP 구조로 연결하여 등록
       routes: {
         "/": (context) => MainPage(),
-        "home" : (context) => HomePage(),
-        "info" : (context) => InfoPage(),
+        "/home" : (context) => HomePage(),
+        "/info" : (context) => InfoPage(),
+        "/setting" : (context) => SettingPage(),
+        "/detail" : (context) => DetailPage(),
       }, // routes end
     ); // MaterialApp end
   } // build end
