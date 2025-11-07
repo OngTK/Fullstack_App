@@ -60,7 +60,8 @@ void main() {
   // [6] null 갖는 타입 > 타입? : 타입명 뒤에 >
   String? nickname; //null 허용
   nickname=null;
-  print("닉네입 : ${ nickname ?? '미정' } ");
+  print("닉네입 : ${ nickname ?? '미정' } "
+      "");
 } // main end
 
 // [5.1] 클래스
