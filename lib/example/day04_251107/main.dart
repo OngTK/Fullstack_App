@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fullstack_app/example/day04_251107/pages/HomePage.dart';
+import 'package:fullstack_app/example/day04_251107/pages/InfoPage.dart';
 import 'package:fullstack_app/example/day04_251107/pages/MainPage.dart';
 
 void main() {
@@ -19,6 +20,7 @@ class MyApp extends StatelessWidget {
       routes: {
         "/": (context) => MainPage(),
         "home" : (context) => HomePage(),
+        "info" : (context) => InfoPage(),
       }, // routes end
     ); // MaterialApp end
   } // build end

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fullstack_app/example/day04_251107/pages/HomePage.dart';
+import 'package:fullstack_app/example/day04_251107/pages/InfoPage.dart';
 
 class MainPage extends StatefulWidget {
   MainPageState createState() => MainPageState();
@@ -13,22 +14,30 @@ class MainPageState extends State<MainPage> {
   // List<Widget> == dynamic page
   dynamic pages = [
     HomePage(), // index 0 > 홈페이지
+    InfoPage(), // index 1 > 정보 페이지
   ]; // page end
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: IndexedStack(index: currentPageIndex, children: pages ),
+      body: IndexedStack(index: currentPageIndex, children: pages),
       bottomNavigationBar: BottomNavigationBar(
         // items 바텀 메뉴에 들어갈 버튼들
         currentIndex: currentPageIndex,
         // 바텀 메뉴 중 하나의 탭을 눌렀을 때의 이벤트
-        onTap: (index){setState(() {
-          currentPageIndex = index;
-        });},
+        onTap: (index) {
+          setState(() {
+            currentPageIndex = index;
+          });
+        },
         // 바텀 메뉴에 들어갈 버튼들
         items: [
-          BottomNavigationBarItem( icon: Icon(Icons.home), label: "홈" )], // 0번
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: "홈"), // 0번
+          BottomNavigationBarItem(
+            icon: Icon(Icons.info, size: 30),
+            label: "정보",
+          ), // 1번
+        ],
       ),
     );
   } // build end
