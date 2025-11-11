@@ -1,0 +1,18 @@
+
+import 'package:flutter/material.dart';
+import 'package:fullstack_app/example/day05_251111/pages/Home.dart';
+
+void main(){
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget{
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      initialRoute: "/home",
+      // routes: {"경로" : (context) => 위젯() },
+      routes: {"/home" : (context) => Home()  },
+    );
+  }
+}
