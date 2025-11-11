@@ -1,18 +1,21 @@
-
 import 'package:flutter/material.dart';
+import 'package:fullstack_app/example/day05_251111/pages/Detail.dart';
 import 'package:fullstack_app/example/day05_251111/pages/Home.dart';
 
-void main(){
+void main() {
   runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget{
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: "/home",
+      initialRoute: "/",
       // routes: {"경로" : (context) => 위젯() },
-      routes: {"/home" : (context) => Home()  },
+      routes: {
+        "/": (context) => Home() ,
+        "/detail": (context) => Detail()
+      },
     );
   }
 }

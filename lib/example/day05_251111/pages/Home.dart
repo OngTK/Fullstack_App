@@ -11,7 +11,7 @@ class HomeState extends State<Home> {
   // [1] 위젯 최초 실행시 실행 함수 : initState()
   void initState() {
     findAll();
-  } // func end
+  } // initState func end
 
   List<dynamic> todoList = [];
 
@@ -27,12 +27,12 @@ class HomeState extends State<Home> {
     } catch (e) {
       print("[findAll 실패] ${e}");
     }
-  }
+  } // findAll func end
 
   // [3] to do 개별 삭제
   void delete(int id) async {
     try {
-      final r = await dio.delete("http://localhost:8080/api/todo/id=${id}");
+      final r = await dio.delete("http://localhost:8080/api/todo?id=${id}");
       final d = await r.data;
 
       if (d) {
@@ -43,7 +43,7 @@ class HomeState extends State<Home> {
       print("[delete 실패] ${e}");
     }
     ;
-  }
+  } // delete func end
 
   @override
   Widget build(BuildContext context) {
@@ -60,6 +60,23 @@ class HomeState extends State<Home> {
                 return Card(
                   child: ListTile(
                     title: Text(todo['title']),
+                    trailing:Row( // 가로정렬 / 가로 배치 위젯
+                      // row 배치에서 오른쪽 버튼들의 넓이를 자동으로 최소 크기로 할당
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        // 삭제 버튼
+                        IconButton(onPressed: (){delete(todo['id']);}, icon: Icon(Icons.delete)),
+                        // 수정 버튼
+                        IconButton(onPressed: (){}, icon: Icon(Icons.update)),
+                        // 상세 버튼
+                        // 위젯 간의 매개변수 전달 필요
+                        // Navigator.pushNamed(context, "/detail", arguments: 매개변수 );
+                        // context : 현재 위젯
+                        // "/detail" : 이동할 위젯 경로
+                        // arguments : 매개변수 전달
+                        IconButton(onPressed: (){ Navigator.pushNamed(context, "/detail", arguments: todo['id'] );}, icon: Icon(Icons.info))
+                      ],
+                    ),
                   ),
                 );
               } ).toList(), // map end
