@@ -67,7 +67,7 @@ class HomeState extends State<Home> {
                         // 삭제 버튼
                         IconButton(onPressed: (){delete(todo['id']);}, icon: Icon(Icons.delete)),
                         // 수정 버튼
-                        IconButton(onPressed: (){}, icon: Icon(Icons.update)),
+                        IconButton(onPressed: (){ Navigator.pushNamed(context, "/update",arguments: todo['id']);}, icon: Icon(Icons.update)),
                         // 상세 버튼
                         // 위젯 간의 매개변수 전달 필요
                         // Navigator.pushNamed(context, "/detail", arguments: 매개변수 );
